@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ActionJS test page</title>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="src/action.js"></script>
+    <script>
+      ActionJS.register('say-hello', function(ev) {
+        var who = this.getAttribute('data-your-name') || 'World';
+        alert('Hello ' + who);
+      });
+
+      ActionJS.register({
+          'delete': function(ev) {
+          var id = this.getAttribute('data-id');
+          var msg = this.getAttribute('data-confirm-message') ||
+                    'Are you sure you want to delete this record?';
+
+          if (id != null && confirm(msg)) alert('Successfully deleted record ' + id);
+        },
+        'show-el': function(ev) {
+          var tgt = document.getElementById(this.getAttribute('data-target-id'));
+
+          if (tgt) tgt.style.setProperty('display', 'block');
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <button type="button" data-action="say-hello">So Worldly</button>
+    <button type="button" data-action="say-hello" data-your-name="Bob">Hi Bob</button>
+    <button type="button" data-action="delete" data-id="10">Delete 10</button>
+    <button type="button" data-action="delete" data-id="11" data-confirm-message="Are you sure you want to delete record 11?">Delete 11</button>
+    <button type="button" data-action="show-el" data-target-id="my-form">Show The Form</button>
+    <form id="my-form" style="display: none;">
+      <p>Hello. Form here.</p>
+    </form>
+  </body>
+</html>

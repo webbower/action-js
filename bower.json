@@ -1,0 +1,29 @@
+{
+  "name": "action-js",
+  "version": "0.1.0",
+  "authors": [
+    "Matt Bower <matt@webbower.com> (http://webbower.com)"
+  ],
+  "description": "Simplify the definition and attachment of click and tap interactions",
+  "main": "src/action.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "dom",
+    "event",
+    "client",
+    "browser"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1"
+  }
+}
